@@ -1,9 +1,15 @@
 import React from "react";
-
+import TodoItem from "./components/TodoItem";
+import Header from "./components/Header";
 function App() {
   return (
     <div>
-      <h1>Hello from React</h1>
+      <Header />
+      <ul className="list">
+        <li>
+          <TodoItem />
+        </li>
+      </ul>
     </div>
   );
 }
