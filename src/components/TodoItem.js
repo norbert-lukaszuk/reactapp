@@ -11,7 +11,7 @@ function TodoItem() {
     height: "20px",
   };
   return (
-    <div>
+    <div className="TodoItem">
       <input type="checkbox" style={CheckboxStyle} />
       <span style={SpanStyle}>Buy milk</span>
     </div>

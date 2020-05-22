@@ -1,16 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
+html{
+  font-family: 'DM Mono', monospace;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+
 .header {
   padding: 30px;
   background-color: rgb(60, 60, 61);
@@ -19,4 +18,12 @@ code {
 }
 .list {
   list-style: none;
+  border: 1px gray solid;
+  margin: 0 10px;
+  padding: 30px 20px 50px 20px;
+  box-shadow: gray 10px 10px 20px;
+}
+.TodoItem{
+  padding: 20px;
+  border-bottom: 2px solid rgb(185, 185, 185);
 }

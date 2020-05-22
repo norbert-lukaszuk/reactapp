@@ -1,14 +1,14 @@
 import React from "react";
 import TodoItem from "./components/TodoItem";
 import Header from "./components/Header";
-import Clock from "./components/Clock";
 function App() {
   return (
-    <div>
+    <div className="wraper">
       <Header />
-      <Clock />
       <ul className="list">
         <li>
+          <TodoItem />
+          <TodoItem />
           <TodoItem />
         </li>
       </ul>

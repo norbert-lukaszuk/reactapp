@@ -13,7 +13,6 @@ function Clock() {
       </h3>
     );
   }
-  console.log(showTime());
-  return <div>{setInterval(showTime, 1000)}</div>;
+  return <div>{showTime()}</div>;
 }
 export default Clock;
