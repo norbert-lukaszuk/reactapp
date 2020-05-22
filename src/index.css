@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.jokeComponent{
+  border-bottom: gray 2px solid;
+}
+.jokeComponent:nth-of-type(even){
+  background-color: rgb(223, 223, 223);
+}
+.mainHeader{
+  text-align: center;
+  padding-bottom: 10px;
+}
