@@ -13,8 +13,8 @@ console.log("products", products);
 
 function App() {
   return (
-    <div>
-      <h1 className="mainHeader">Hello from React</h1>
+    <div className="AppContainer">
+      <h1 className="mainHeader">Product list</h1>
       {ProductsArray}
     </div>
   );
