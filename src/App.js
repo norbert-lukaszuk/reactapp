@@ -17,7 +17,7 @@ class App extends Component {
       style.color = "green";
     } else {
       status = "logout";
-      style.color = "red";
+      style.color = "crimson";
     }
     return (
       <h2 style={{ backgroundColor: "gray" }}>
