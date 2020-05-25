@@ -1,9 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
 body {
   margin: 0;
+  width: 100vw;
   font-family: "Exo 2", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 code {
@@ -12,6 +17,21 @@ code {
 }
 .mainHeader {
   text-align: center;
+  width: 100%;
   background-color: rgb(178, 178, 178);
   padding: 10px;
+}
+.buttonPlus {
+  background: none;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.countingComponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

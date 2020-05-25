@@ -1,11 +1,35 @@
 import React from "react";
 
-function App() {
-  return (
-    <div>
-      <h1 className="mainHeader">Hello from React</h1>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0,
+    };
+  }
+  handleClickPlus = () => {
+    this.setState((prevState) => {
+      return { count: prevState.count + 1 };
+    });
+  };
+  handleClickMinus = () => {
+    this.setState((prevState) => {
+      return { count: prevState.count - 1 };
+    });
+  };
+  render() {
+    return (
+      <div className="countingComponent" style={{ width: "100vw" }}>
+        <h1 className="mainHeader">{this.state.count}</h1>
+        <button onClick={this.handleClickPlus} className="buttonPlus">
+          Count +
+        </button>
+        <button onClick={this.handleClickMinus} className="buttonPlus">
+          Count -
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
