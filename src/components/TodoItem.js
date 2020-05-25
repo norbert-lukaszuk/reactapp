@@ -20,7 +20,7 @@ class TodoItem extends Component {
     return (
       <div className="TodoItem">
         <input
-          onChange={() => console.log("click")}
+          onChange={() => console.log(this.props)}
           type="checkbox"
           style={CheckboxStyle}
           checked={completed}
