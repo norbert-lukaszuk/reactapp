@@ -6,10 +6,8 @@ class TodoItem extends Component {
     this.state = {};
   }
   render() {
-    const { id, text, completed } = this.props;
-    this.state.id = id;
-    this.state.text = text;
-    this.state.completed = completed;
+    const { text, completed } = this.props; //destructuring props to use as variables below
+
     const SpanStyle = {
       color: "green",
       fontSize: "1.5rem",
@@ -22,11 +20,12 @@ class TodoItem extends Component {
     return (
       <div className="TodoItem">
         <input
+          onChange={() => console.log("click")}
           type="checkbox"
           style={CheckboxStyle}
-          checked={this.state.completed}
+          checked={completed}
         />
-        <span style={SpanStyle}>{this.state.text}</span>
+        <span style={SpanStyle}>{text}</span>
       </div>
     );
   }
