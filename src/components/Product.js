@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react"; // import Component to not type it below
 
-class Product extends React.Component {
+class Product extends Component {
   render() {
     return (
       <div style={{ padding: "20px" }}>
