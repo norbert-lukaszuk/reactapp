@@ -9,15 +9,15 @@ const ProductsArray = products.map((product) => (
     key={product.id}
   />
 ));
-console.log("products", products);
-
-function App() {
-  return (
-    <div className="AppContainer">
-      <h1 className="mainHeader">Product list</h1>
-      {ProductsArray}
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="AppContainer">
+        <h1 className="mainHeader">Product list</h1>
+        {ProductsArray}
+      </div>
+    );
+  }
 }
 
 export default App;
