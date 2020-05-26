@@ -11,7 +11,14 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(id) {
-    console.log(`Id = ${id}`);
+    const newArray = this.state.todos.map((e) => {
+      if (e.id === id) {
+        return { ...e, completed: true };
+      }
+      return e;
+    });
+    this.state.todos = newArray;
+    // console.log(this.state.todos);
   }
   render() {
     const TodosArray = this.state.todos.map((e) => (
@@ -23,7 +30,7 @@ class App extends Component {
         handleChange={this.handleChange}
       />
     ));
-
+    console.log(TodosArray);
     return (
       <div className="wraper">
         <Header />
