@@ -8,14 +8,16 @@ class App extends Component {
     this.state = {
       todos: todosData, //state.todos = [{},{},{}...] we can use map method
     };
+    this.handleChange = this.handleChange.bind(this);
   }
-  handleChange = (id) => {
-    console.log(`Changed item ${id}`);
-  };
+  handleChange(id) {
+    console.log(`Id = ${id}`);
+  }
   render() {
     const TodosArray = this.state.todos.map((e) => (
       <TodoItem
         key={e.id}
+        id={e.id}
         text={e.text}
         completed={e.completed}
         handleChange={this.handleChange}

@@ -20,10 +20,10 @@ class TodoItem extends Component {
     return (
       <div className="TodoItem">
         <input
-          onChange={() => console.log(this.props)}
+          onChange={() => this.props.handleChange(this.props.id)}
           type="checkbox"
           style={CheckboxStyle}
-          checked={completed}
+          checked={this.props.completed}
         />
         <span style={SpanStyle}>{text}</span>
       </div>
