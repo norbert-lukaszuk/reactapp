@@ -1,35 +1,32 @@
 import React from "react";
+import TodoItem from "./components/TodoItem";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-    };
-  }
-  handleClickPlus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count + 1 };
-    });
+  state = {
+    todos: [
+      { text: "Buy milk", id: 1 },
+      { text: "Wash car", id: 2 },
+      { text: "Code app", id: 3 },
+    ],
   };
-  handleClickMinus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count - 1 };
-    });
+  handleClick = (id) => {
+    return console.log("Click", id);
   };
   render() {
+    const todos = this.state.todos.map((todo) => (
+      <TodoItem
+        handleClick={this.handleClick}
+        text={todo.text}
+        key={todo.id}
+        id={todo.id}
+      />
+    ));
     return (
-      <div className="countingComponent" style={{ width: "100vw" }}>
-        <h1 className="mainHeader">{this.state.count}</h1>
-        <button onClick={this.handleClickPlus} className="buttonPlus">
-          Count +
-        </button>
-        <button onClick={this.handleClickMinus} className="buttonPlus">
-          Count -
-        </button>
+      <div>
+        <h2 className="mainHeader">Todo list</h2>
+        {todos}
       </div>
     );
   }
 }
-
 export default App;
