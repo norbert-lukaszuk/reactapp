@@ -4,13 +4,22 @@ import TodoItem from "./components/TodoItem";
 class App extends React.Component {
   state = {
     todos: [
-      { text: "Buy milk", id: 1 },
-      { text: "Wash car", id: 2 },
-      { text: "Code app", id: 3 },
+      { text: "Buy milk", completed: true, id: 1 },
+      { text: "Wash car", completed: false, id: 2 },
+      { text: "Code app", completed: true, id: 3 },
     ],
   };
   handleClick = (id) => {
-    return console.log("Click", id);
+    const newTodos = this.state.todos.map((e) => {
+      if (e.id === id) {
+        return {
+          ...e,
+          completed: !e.completed,
+        };
+      }
+      return e;
+    });
+    console.log(newTodos);
   };
   render() {
     const todos = this.state.todos.map((todo) => (
@@ -18,6 +27,7 @@ class App extends React.Component {
         handleClick={this.handleClick}
         text={todo.text}
         key={todo.id}
+        completed={todo.completed}
         id={todo.id}
       />
     ));

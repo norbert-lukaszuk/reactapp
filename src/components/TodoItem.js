@@ -3,7 +3,12 @@ import React from "react";
 function TodoItem(props) {
   return (
     <div>
-      <p onClick={() => props.handleClick(props.id)}>{props.text}</p>
+      <input
+        type="checkbox"
+        checked={props.completed}
+        onChange={() => props.handleClick(props.id)}
+      />
+      <span onClick={() => props.handleClick(props.id)}>{props.text}</span>
     </div>
   );
 }
