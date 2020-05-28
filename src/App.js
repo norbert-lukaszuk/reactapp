@@ -13,13 +13,15 @@ class App extends React.Component {
     const newTodos = this.state.todos.map((e) => {
       if (e.id === id) {
         return {
-          ...e,
-          completed: !e.completed,
+          ...e, //spred object from the array
+          completed: !e.completed, //modify value of completed
+          newValue: "I've been add", // add new value for example
         };
       }
       return e;
     });
     console.log(newTodos);
+    this.setState({ todos: newTodos });
   };
   render() {
     const todos = this.state.todos.map((todo) => (
