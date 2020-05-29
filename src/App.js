@@ -26,6 +26,7 @@ class App extends React.Component{
 
     return(
       <div className="mainComponent">
+        <h2 style={{textAlign: "center"} }>Todo list</h2>
         {todosArray}
       </div>
     )
