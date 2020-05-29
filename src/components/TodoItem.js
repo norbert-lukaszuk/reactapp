@@ -2,9 +2,9 @@ import React from "react";
 
 function TodoItem(props){
     return(
-        <div>
+        <div className="todoItem">
             <input onChange={()=> props.handleChange(props.id)} type="checkbox" checked={props.completed} />
-             <span>{props.text}</span>
+             <span className="spanItem" style={props.completed?{color: "gray", textDecoration: "line-through"}:{color:"blue"}}>{props.text}</span>
              <hr />
         </div>
 
