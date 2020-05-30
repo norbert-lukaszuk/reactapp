@@ -1,4 +1,5 @@
 import React from "react";
+import { createPortal } from "react-dom";
 
 function TodoItem(props) {
   return (
@@ -8,7 +9,15 @@ function TodoItem(props) {
         checked={props.completed}
         onChange={() => props.handleClick(props.id)}
       />
-      <span onClick={() => props.handleClick(props.id)}>{props.text}</span>
+      <span
+        style={
+          props.completed
+            ? { color: "gray", textDecoration: "line-through" }
+            : { color: "green" }
+        }
+      >
+        {props.text}
+      </span>
     </div>
   );
 }
