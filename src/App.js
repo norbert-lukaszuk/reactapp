@@ -1,7 +1,6 @@
 import React from "react";
 import todosData from "./components/todoData";
 import TodoItem from "./components/TodoItem";
-import Input from "./components/InputComponent";
 class App extends React.Component {
   state = {
     todos: todosData,
@@ -22,20 +21,16 @@ class App extends React.Component {
   };
   handleInput = (e) => {
     console.log(e.target.value);
-    let input = e.target.value;
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState((prevState) => {
-      console.log(prevState.todos.length);
-      prevState.todos.push({
-        id: 6,
-        text: "Test todo",
-        completed: false,
-      });
-    });
-    console.log(this.state.todos);
+    const newState = [
+      ...this.state.todos,
+      { id: 6, text: "Added by hand", completed: true },
+    ];
+    this.setState({ todos: newState });
   };
+
   render() {
     const todosArray = this.state.todos.map((todo) => {
       return (
@@ -53,8 +48,8 @@ class App extends React.Component {
       <div className="mainComponent">
         <h2 style={{ textAlign: "center" }}>Todo list</h2>
         {todosArray}
-        <form id="Form" onSubmit={() => this.handleSubmit}>
-          <input onChange={() => this.handleInput} type="text" />
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.handleInput} type="text" />
         </form>
       </div>
     );
