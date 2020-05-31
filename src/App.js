@@ -20,9 +20,21 @@ class App extends React.Component {
     console.log(newState);
     this.setState({ todos: newState });
   };
+  handleInput = (e) => {
+    console.log(e.target.value);
+    let input = e.target.value;
+  };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit", e);
+    this.setState((prevState) => {
+      console.log(prevState.todos.length);
+      prevState.todos.push({
+        id: 6,
+        text: "Test todo",
+        completed: false,
+      });
+    });
+    console.log(this.state.todos);
   };
   render() {
     const todosArray = this.state.todos.map((todo) => {
@@ -41,8 +53,8 @@ class App extends React.Component {
       <div className="mainComponent">
         <h2 style={{ textAlign: "center" }}>Todo list</h2>
         {todosArray}
-        <form id="Form" onSubmit={this.handleSubmit}>
-          <input type="text" />
+        <form id="Form" onSubmit={() => this.handleSubmit}>
+          <input onChange={() => this.handleInput} type="text" />
         </form>
       </div>
     );
