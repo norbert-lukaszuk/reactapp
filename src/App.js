@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import todosData from "./components/todoData";
 import TodoItem from "./components/TodoItem";
+import Input from "./components/Input";
+
 class App extends Component {
   state = {
     todos: todosData,
