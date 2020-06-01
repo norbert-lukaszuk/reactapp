@@ -1,6 +1,7 @@
 import React from "react";
 import todosData from "./components/todoData";
 import TodoItem from "./components/TodoItem";
+import Input from "./components/InputComponent";
 class App extends React.Component {
   state = {
     todos: todosData,
@@ -19,16 +20,14 @@ class App extends React.Component {
     console.log(newState);
     this.setState({ todos: newState });
   };
-  handleInput = (e) => {
-    console.log(e.target.value);
-  };
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const newState = [
-      ...this.state.todos,
-      { id: 6, text: "Added by hand", completed: true },
-    ];
-    this.setState({ todos: newState });
+  addTodo = (todo) => {
+    // we got here passed state obj from Input component
+    let id = Math.random() * 1000; // adding new id
+    todo.id = id;
+    todo.completed = false; //new todo is not completed
+    let newTodos = [...this.state.todos, todo];
+    console.log(todo, newTodos);
+    this.setState({ todos: newTodos });
   };
 
   render() {
@@ -48,9 +47,7 @@ class App extends React.Component {
       <div className="mainComponent">
         <h2 style={{ textAlign: "center" }}>Todo list</h2>
         {todosArray}
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleInput} type="text" />
-        </form>
+        <Input addTodo={this.addTodo} />
       </div>
     );
   }
