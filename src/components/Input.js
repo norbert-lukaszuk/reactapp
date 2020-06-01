@@ -11,7 +11,8 @@ class Input extends Component {
     e.preventDefault();
     this.props.addTodo(this.state);
     this.setState({ text: "" });
-    // console.log(this.state);
+    localStorage.setItem("todoData", JSON.stringify(this.props.todos));
+    console.log(this.props.todos);
   };
   handleInput = (e) => {
     this.setState({

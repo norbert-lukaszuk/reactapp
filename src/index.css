@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Oswald", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -34,4 +34,11 @@ code {
 .inputForm > input {
   padding: 10px;
   width: 15rem;
+}
+.todoItem > input {
+  width: 1.375em;
+  height: 1.375em;
+}
+.todoText {
+  margin-left: 0.75rem;
 }

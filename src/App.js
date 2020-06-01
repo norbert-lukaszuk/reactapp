@@ -5,6 +5,7 @@ import Input from "./components/Input";
 
 class App extends Component {
   state = {
+    // todos: JSON.parse(localStorage.getItem("todosData")),
     todos: todosData,
   };
 
@@ -19,14 +20,14 @@ class App extends Component {
       }
       return todo;
     });
-    console.log(newTodos);
     this.setState({ todos: newTodos });
+    console.log(this.state.todos);
   };
   addTodo = (todo) => {
     todo.id = Math.random() * 1000;
     let newTodos = [...this.state.todos, todo];
     this.setState({ todos: newTodos });
-    console.log(newTodos);
+    console.log(this.state);
   };
 
   render() {
@@ -43,8 +44,9 @@ class App extends Component {
     });
     return (
       <div className="appComponent">
+        <h2 style={{ textAlign: "center" }}>Todo list</h2>
         {todosArray}
-        <Input addTodo={this.addTodo} />
+        <Input addTodo={this.addTodo} todos={this.state.todos} />
       </div>
     );
   }
