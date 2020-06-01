@@ -9,7 +9,16 @@ class TodoItem extends Component {
           checked={this.props.completed}
           onChange={() => this.props.handleChange(this.props.id)}
         />
-        <span>{this.props.text}</span>
+        <span
+          style={
+            this.props.completed
+              ? { textDecoration: "line-through", color: "gray" }
+              : { textDecoration: "none" }
+          }
+        >
+          {this.props.text}
+        </span>
+        <hr />
       </div>
     );
   }

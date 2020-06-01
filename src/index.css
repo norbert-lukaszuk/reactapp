@@ -1,13 +1,37 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.appComponent {
+  padding: 20px;
+  margin: 20px;
+  border: 2px gray solid;
+  box-shadow: gray 15px 15px 15px;
+}
+.inputForm {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputForm > button {
+  margin-left: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(236, 87, 87);
+  box-shadow: gray 5px 5px 5px;
+}
+.inputForm > input {
+  padding: 10px;
+  width: 15rem;
 }

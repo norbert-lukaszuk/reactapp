@@ -7,13 +7,30 @@ class Input extends Component {
     text: "",
     completed: false,
   };
-
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addTodo(this.state);
+    this.setState({ text: "" });
+    // console.log(this.state);
+  };
+  handleInput = (e) => {
+    this.setState({
+      text: e.target.value,
+    });
+  };
   render() {
     return (
       <div>
-        <input type="text" />
-        <button type="submit">Add todo</button>
+        <form onSubmit={this.handleSubmit} className="inputForm">
+          <input
+            type="text"
+            onChange={this.handleInput}
+            value={this.state.text}
+          />
+          <button type="submit">Add todo</button>
+        </form>
       </div>
     );
   }
 }
+export default Input;
