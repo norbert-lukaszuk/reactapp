@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import todosData from "./components/todoData";
 import TodoItem from "./components/TodoItem";
 import Input from "./components/Input";
 
@@ -19,15 +18,15 @@ class App extends Component {
       }
       return todo;
     });
-    this.setState({ todos: newTodos });
-    console.log(this.state.todos);
+    this.setState({ todos: newTodos }, () =>
+      localStorage.setItem("todosData", JSON.stringify(this.state.todos))
+    );
   };
   addTodo = (todo) => {
     todo.id = Math.random() * 1000;
     let newTodos = [...this.state.todos, todo];
     this.setState({ todos: newTodos }, () => {
       localStorage.setItem("todosData", JSON.stringify(this.state.todos));
-      console.log(this.state);
     });
   };
 
