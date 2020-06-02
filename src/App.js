@@ -5,8 +5,7 @@ import Input from "./components/Input";
 
 class App extends Component {
   state = {
-    // todos: JSON.parse(localStorage.getItem("todosData")),
-    todos: todosData,
+    todos: JSON.parse(localStorage.getItem("todosData")),
   };
 
   handleChange = (id) => {
@@ -26,8 +25,10 @@ class App extends Component {
   addTodo = (todo) => {
     todo.id = Math.random() * 1000;
     let newTodos = [...this.state.todos, todo];
-    this.setState({ todos: newTodos });
-    console.log(this.state);
+    this.setState({ todos: newTodos }, () => {
+      localStorage.setItem("todosData", JSON.stringify(this.state.todos));
+      console.log(this.state);
+    });
   };
 
   render() {
