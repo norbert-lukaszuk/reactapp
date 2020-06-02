@@ -68,7 +68,7 @@ class App extends Component {
     });
     return (
       <div className="appComponent">
-        <h2 style={{ textAlign: "center" }}>Todo list</h2>
+        <h2 style={{ textAlign: "center", fontSize: "2em" }}>Todo list</h2>
         {todosArray}
         <Input addTodo={this.addTodo} todos={this.state.todos} />
       </div>

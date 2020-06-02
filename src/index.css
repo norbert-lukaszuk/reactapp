@@ -35,8 +35,15 @@ code {
   padding: 10px;
   width: 15rem;
 }
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: gray 2px solid;
+}
 .todoItem:hover {
-  background-color: indianred;
+  background-color: rgba(205, 92, 92, 0.555);
+  border-radius: 10px;
 }
 .todoItem > input {
   width: 1.375em;
