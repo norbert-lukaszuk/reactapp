@@ -35,10 +35,15 @@ code {
   padding: 10px;
   width: 15rem;
 }
+.todoItem:hover {
+  background-color: indianred;
+}
 .todoItem > input {
   width: 1.375em;
   height: 1.375em;
+  cursor: pointer;
 }
 .todoText {
   margin-left: 0.75rem;
+  cursor: pointer;
 }

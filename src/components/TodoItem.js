@@ -16,6 +16,7 @@ class TodoItem extends Component {
               ? { textDecoration: "line-through", color: "gray" }
               : { textDecoration: "none" }
           }
+          onClick={() => this.props.handleClick(this.props.id)}
         >
           {this.props.text}
         </span>

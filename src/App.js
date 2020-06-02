@@ -18,22 +18,40 @@ class App extends Component {
       }
       return todo;
     });
-    this.setState({ todos: newTodos }, () =>
-      localStorage.setItem("todosData", JSON.stringify(this.state.todos))
+    this.setState(
+      {
+        todos: newTodos,
+      } /* () =>
+      localStorage.setItem("todosData", JSON.stringify(this.state.todos)) */
     );
+  };
+  handleClick = (id) => {
+    const newTodos = this.state.todos.filter((todo) => {
+      if (todo.id === id) {
+        return todo.id !== id;
+      }
+      return todo;
+    });
+    console.log(newTodos);
+    this.setState({ todos: newTodos });
   };
   addTodo = (todo) => {
     todo.id = Math.random() * 1000;
     let newTodos = [...this.state.todos, todo];
-    this.setState({ todos: newTodos }, () => {
+    this.setState(
+      {
+        todos: newTodos,
+      } /* , () => {
       localStorage.setItem("todosData", JSON.stringify(this.state.todos));
-    });
+    } */
+    );
   };
   componentDidMount() {
     console.log("Component mounted");
   }
   componentDidUpdate(prevProps, prevState) {
     console.log(prevState);
+    localStorage.setItem("todosData", JSON.stringify(this.state.todos));
   }
   render() {
     const todosArray = this.state.todos.map((todo) => {
@@ -44,6 +62,7 @@ class App extends Component {
           text={todo.text}
           completed={todo.completed}
           handleChange={this.handleChange}
+          handleClick={this.handleClick}
         />
       );
     });
