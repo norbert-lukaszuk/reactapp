@@ -29,7 +29,12 @@ class App extends Component {
       localStorage.setItem("todosData", JSON.stringify(this.state.todos));
     });
   };
-
+  componentDidMount() {
+    console.log("Component mounted");
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState);
+  }
   render() {
     const todosArray = this.state.todos.map((todo) => {
       return (
