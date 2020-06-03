@@ -36,7 +36,7 @@ class App extends Component {
     this.setState({ todos: newTodos });
   };
   addTodo = (todo) => {
-    todo.id = Math.random() * 1000;
+    todo.id = Math.floor(Math.random() * 1000);
     let newTodos = [...this.state.todos, todo];
     this.setState(
       {
