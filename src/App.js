@@ -6,7 +6,6 @@ class App extends Component {
   state = {
     todos: JSON.parse(localStorage.getItem("todosData")),
   };
-
   handleChange = (id) => {
     const newTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
@@ -42,12 +41,27 @@ class App extends Component {
       {
         todos: newTodos,
       } /* , () => {
-      localStorage.setItem("todosData", JSON.stringify(this.state.todos));
-    } */
+        localStorage.setItem("todosData", JSON.stringify(this.state.todos));
+      } */
     );
   };
   componentDidMount() {
     console.log("Component mounted");
+    fetch("https://jsonplaceholder.typicode.com/users/1/todos")
+      .then((resp) => resp.json())
+      .then((data) => {
+        let arr = data.map((todo) => {
+          return (
+            <TodoItem
+              id={todo.id}
+              text={todo.title}
+              completed={todo.completed}
+            />
+          );
+        });
+        console.log(arr);
+        return arr;
+      });
   }
   componentDidUpdate(prevProps, prevState) {
     console.log(prevState);
@@ -70,6 +84,7 @@ class App extends Component {
       <div className="appComponent">
         <h2 style={{ textAlign: "center", fontSize: "2em" }}>Todo list</h2>
         {todosArray}
+        {/* {ApiTodos} */}
         <Input addTodo={this.addTodo} todos={this.state.todos} />
       </div>
     );
