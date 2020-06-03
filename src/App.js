@@ -27,7 +27,7 @@ class App extends Component {
   };
   handleClick = (id) => {
     const newTodos = this.state.todos.filter((todo) => {
-      if (todo.id === id) {
+      if (todo.id === id && todo.completed === true) {
         return todo.id !== id;
       }
       return todo;

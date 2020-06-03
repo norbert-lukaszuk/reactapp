@@ -36,6 +36,7 @@ code {
   width: 15rem;
 }
 .todoItem {
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
