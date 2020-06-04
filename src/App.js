@@ -3,9 +3,14 @@ import TodoItem from "./components/TodoItem";
 import Input from "./components/Input";
 
 class App extends Component {
-  state = {
-    todos: JSON.parse(localStorage.getItem("todosData")),
-  };
+  constructor() {
+    super();
+    this.state = {
+      isLoading: false,
+      todos: [],
+    };
+  }
+
   handleChange = (id) => {
     const newTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
@@ -46,44 +51,40 @@ class App extends Component {
     );
   };
   componentDidMount() {
+    this.setState({ isLoading: true });
     console.log("Component mounted");
     fetch("https://jsonplaceholder.typicode.com/users/1/todos")
       .then((resp) => resp.json())
       .then((data) => {
-        let arr = data.map((todo) => {
-          return (
-            <TodoItem
-              id={todo.id}
-              text={todo.title}
-              completed={todo.completed}
-            />
-          );
-        });
-        console.log(arr);
-        return arr;
+        this.setState({ isLoading: false, todos: data }, () =>
+          console.log(this.state)
+        );
       });
   }
   componentDidUpdate(prevProps, prevState) {
     console.log(prevState);
-    localStorage.setItem("todosData", JSON.stringify(this.state.todos));
+    // localStorage.setItem("todosData", JSON.stringify(this.state.todos));
   }
   render() {
-    const todosArray = this.state.todos.map((todo) => {
-      return (
-        <TodoItem
-          key={todo.id}
-          id={todo.id}
-          text={todo.text}
-          completed={todo.completed}
-          handleChange={this.handleChange}
-          handleClick={this.handleClick}
-        />
-      );
-    });
+    const text = this.state.isLoading
+      ? "Loading..."
+      : this.state.todos.map((todo) => {
+          return (
+            <TodoItem
+              key={todo.id}
+              id={todo.id}
+              text={todo.title}
+              completed={todo.completed}
+              handleChange={this.handleChange}
+              handleClick={this.handleClick}
+            />
+          );
+        });
     return (
       <div className="appComponent">
         <h2 style={{ textAlign: "center", fontSize: "2em" }}>Todo list</h2>
-        {todosArray}
+        <div>{text}</div>
+        {/* {todosArray} */}
         {/* {ApiTodos} */}
         <Input addTodo={this.addTodo} todos={this.state.todos} />
       </div>
