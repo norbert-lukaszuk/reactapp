@@ -66,7 +66,7 @@ class App extends Component {
     // localStorage.setItem("todosData", JSON.stringify(this.state.todos));
   }
   render() {
-    const text = this.state.isLoading
+    const todos = this.state.isLoading
       ? "Loading..."
       : this.state.todos.map((todo) => {
           return (
@@ -83,7 +83,7 @@ class App extends Component {
     return (
       <div className="appComponent">
         <h2 style={{ textAlign: "center", fontSize: "2em" }}>Todo list</h2>
-        <div>{text}</div>
+        <div>{todos}</div>
         {/* {todosArray} */}
         {/* {ApiTodos} */}
         <Input addTodo={this.addTodo} todos={this.state.todos} />
