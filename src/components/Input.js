@@ -10,7 +10,7 @@ class Input extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addTodo(this.state);
-    this.setState({ text: "" });
+    this.setState({ title: "" });
     localStorage.setItem("todoData", JSON.stringify(this.props.todos));
     console.log(this.props.todos);
   };
