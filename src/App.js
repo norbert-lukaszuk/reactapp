@@ -1,32 +1,58 @@
 import React from "react";
+import Joke from "./components/Joke";
+import Trump from "./components/Trump";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      count: 0,
+      jokes: {},
+      trumps: {},
     };
   }
-  handleClickPlus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count + 1 };
-    });
+  handleClickJoke = () => {
+    fetch("http://api.icndb.com/jokes/random")
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({ jokes: data.value }, () =>
+          console.log(this.state.jokes.joke)
+        );
+      });
   };
-  handleClickMinus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count - 1 };
-    });
+  handleClickTrump = () => {
+    fetch("https://tronalddump.io/random/quote")
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data.value);
+        this.setState({ trumps: data }, () => console.log(this.state));
+      });
   };
+  componentDidMount() {
+    console.log("Component did mount");
+    fetch("http://api.icndb.com/jokes/random")
+      .then((resp) => resp.json())
+      .then((data) => {
+        // console.log(data);
+        this.setState({ jokes: data.value }, () =>
+          console.log(this.state.jokes.joke)
+        );
+      });
+    fetch("https://tronalddump.io/random/quote")
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ trumps: data }, () =>
+          console.log(this.state.trumps.value)
+        );
+      });
+  }
   render() {
     return (
-      <div className="countingComponent" style={{ width: "100vw" }}>
-        <h1 className="mainHeader">{this.state.count}</h1>
-        <button onClick={this.handleClickPlus} className="buttonPlus">
-          Count +
-        </button>
-        <button onClick={this.handleClickMinus} className="buttonPlus">
-          Count -
-        </button>
+      <div className="mainComponent">
+        <Joke joke={this.state.jokes.joke} />
+        <button onClick={() => this.handleClickJoke()}>Generate Chuck</button>
+        <Trump trump={this.state.trumps.value} />
+        <button onClick={() => this.handleClickTrump()}>Generate Trump</button>
       </div>
     );
   }
