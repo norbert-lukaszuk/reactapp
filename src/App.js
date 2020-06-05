@@ -61,10 +61,10 @@ class App extends Component {
         );
       });
   }
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState);
-    // localStorage.setItem("todosData", JSON.stringify(this.state.todos));
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevState);
+  //   // localStorage.setItem("todosData", JSON.stringify(this.state.todos));
+  // }
   render() {
     const todos = this.state.isLoading
       ? "Loading..."

@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 class Input extends Component {
   state = {
     id: "",
-    text: "",
+    title: "",
     completed: false,
   };
   handleSubmit = (e) => {
@@ -16,7 +16,7 @@ class Input extends Component {
   };
   handleInput = (e) => {
     this.setState({
-      text: e.target.value,
+      title: e.target.value,
     });
   };
   render() {
@@ -26,7 +26,7 @@ class Input extends Component {
           <input
             type="text"
             onChange={this.handleInput}
-            value={this.state.text}
+            value={this.state.title}
           />
           <button type="submit">Add todo</button>
         </form>
