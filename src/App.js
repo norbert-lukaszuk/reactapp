@@ -6,6 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      facts: {},
       jokes: {},
       trumps: {},
     };
@@ -20,12 +21,13 @@ class App extends React.Component {
         );
       });
   };
-  handleClickTrump = () => {
-    fetch("https://tronalddump.io/random/quote")
+  handleClickFact = () => {
+    fetch("https://uselessfacts.jsph.pl/random.json?language=en")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data.value);
-        this.setState({ trumps: data }, () => console.log(this.state));
+        this.setState({ facts: data }, () =>
+          console.log(this.state.facts.text)
+        );
       });
   };
   componentDidMount() {
@@ -38,11 +40,11 @@ class App extends React.Component {
           console.log(this.state.jokes.joke)
         );
       });
-    fetch("https://tronalddump.io/random/quote")
+    fetch("https://uselessfacts.jsph.pl/random.json?language=en")
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({ trumps: data }, () =>
-          console.log(this.state.trumps.value)
+        this.setState({ facts: data }, () =>
+          console.log(this.state.facts.text)
         );
       });
   }
@@ -51,8 +53,8 @@ class App extends React.Component {
       <div className="mainComponent">
         <Joke joke={this.state.jokes.joke} />
         <button onClick={() => this.handleClickJoke()}>Generate Chuck</button>
-        <Trump trump={this.state.trumps.value} />
-        <button onClick={() => this.handleClickTrump()}>Generate Trump</button>
+        <Trump fact={this.state.facts} />
+        <button onClick={() => this.handleClickFact()}>Generate Fact</button>
       </div>
     );
   }
