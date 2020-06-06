@@ -1,6 +1,6 @@
 import React from "react";
 
-const Trump = (props) => {
+const Fact = (props) => {
   console.log(props.fact);
   return (
     <div>
@@ -8,4 +8,4 @@ const Trump = (props) => {
     </div>
   );
 };
-export default Trump;
+export default Fact;

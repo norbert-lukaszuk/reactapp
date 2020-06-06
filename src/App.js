@@ -1,6 +1,6 @@
 import React from "react";
 import Joke from "./components/Joke";
-import Trump from "./components/Trump";
+import Fact from "./components/Fact";
 
 class App extends React.Component {
   constructor() {
@@ -51,9 +51,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="mainComponent">
+        <h3 style={{ textAlign: "center" }}>One Chuck Norris </h3>
         <Joke joke={this.state.jokes.joke} />
         <button onClick={() => this.handleClickJoke()}>Generate Chuck</button>
-        <Trump fact={this.state.facts} />
+        <h3 style={{ textAlign: "center" }}>One useless fact</h3>
+        <Fact fact={this.state.facts} />
         <button onClick={() => this.handleClickFact()}>Generate Fact</button>
       </div>
     );

@@ -2,6 +2,8 @@
 body {
   margin: 0;
   width: 100vw;
+  background: none;
+  border: none;
   font-family: "Exo 2", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,8 +18,25 @@ code {
     monospace;
 }
 .mainComponent {
-  padding: 25px;
+  margin-top: 20px;
+  padding: 25px 25px 35px 25px;
+  width: 850px;
+  /* border: 1px solid gray; */
+  border-radius: 10px;
+  background-color: rgb(212, 245, 212);
+  box-shadow: 20px 20px 20px gray;
 }
 .mainComponent > button {
+  padding: 8px;
   margin-left: 3em;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(196, 124, 124);
+  box-shadow: 10px 10px 10px gray;
+  transition: all ease-in 0.2s;
+  /* outline: none; */
+}
+.mainComponent > button:hover {
+  transform: scale(0.97);
 }
