@@ -40,3 +40,15 @@ code {
 .mainComponent > button:hover {
   transform: scale(0.97);
 }
+@media (max-width: 360px) {
+  .mainComponent {
+    font-size: 1.125em;
+    width: 320px;
+    padding: 10px 10px 25px 10px;
+    margin: 20px 5px;
+    box-shadow: none;
+  }
+  .mainComponent > button {
+    font-size: 1em;
+  }
+}
