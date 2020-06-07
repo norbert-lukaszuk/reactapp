@@ -4,30 +4,42 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      count: 0,
+      FirstName: "",
+      LastName: "",
+      Age: "",
     };
   }
-  handleClickPlus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count + 1 };
-    });
-  };
-  handleClickMinus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count - 1 };
-    });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
   render() {
     return (
-      <div className="countingComponent" style={{ width: "100vw" }}>
-        <h1 className="mainHeader">{this.state.count}</h1>
-        <button onClick={this.handleClickPlus} className="buttonPlus">
-          Count +
-        </button>
-        <button onClick={this.handleClickMinus} className="buttonPlus">
-          Count -
-        </button>
-      </div>
+      <form>
+        <input
+          type="text"
+          name="FirstName"
+          placeholder="First Name"
+          onChange={this.handleChange}
+        />
+        <br />
+        <input
+          type="text"
+          name="LastName"
+          placeholder="Last Name"
+          onChange={this.handleChange}
+        />
+        <input
+          type="number"
+          name="Age"
+          placeholder="Age"
+          onChange={this.handleChange}
+        />
+
+        <h4>
+          First Name: {this.state.FirstName} <br /> Last Name:{" "}
+          {this.state.LastName} <br /> Age: {this.state.Age}
+        </h4>
+      </form>
     );
   }
 }
