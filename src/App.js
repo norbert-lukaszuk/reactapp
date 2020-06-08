@@ -8,12 +8,15 @@ class App extends React.Component {
       LastName: "",
       Age: "",
       Description: "",
+      isChecked: true,
     };
   }
   handleChange = (e) => {
-    const { name, value } = e.target; // destructure properties name & value before asigne them to state
-    console.log(name, value);
-    this.setState({ [name]: value }); //input name attribute must be the same as key in state object
+    const { name, value, type, checked } = e.target; // destructure properties name & value before asigne them to state
+    console.log(name, value, checked);
+    type === "checkbox"
+      ? this.setState({ [name]: checked })
+      : this.setState({ [name]: value }); //input name attribute must be the same as key in state object
   };
   render() {
     return (
@@ -45,10 +48,20 @@ class App extends React.Component {
           First Name: {this.state.FirstName} <br /> Last Name:{" "}
           {this.state.LastName} <br /> Age: {this.state.Age}
         </h4>
+        <p>{this.state.Description}</p>
         <textarea
-          name="description"
+          name="Description"
           onChange={this.handleChange}
           value={this.state.Description}
+        />
+        <br />
+        <label htmlFor="isChecked">checkbox</label>
+        <input
+          type="checkbox"
+          name="isChecked"
+          id="isChecked"
+          checked={this.state.isChecked}
+          onChange={this.handleChange}
         />
       </form>
     );
