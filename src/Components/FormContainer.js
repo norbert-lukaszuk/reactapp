@@ -9,7 +9,7 @@ class Form extends React.Component {
       FirstName: "",
       LastName: "",
       Age: "",
-      Gender: "",
+      Gender: "Female",
       Destination: "",
       VeganDiet: "",
       LactoseFreeDiet: "",

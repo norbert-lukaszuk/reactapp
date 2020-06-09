@@ -24,6 +24,28 @@ function FormComponent(props) {
         value={props.Age}
         onChange={props.handleChange}
       />
+      <h3>Gender: </h3>
+      <label htmlFor="Gander">
+        Female
+        <input
+          type="radio"
+          name="Gender"
+          value="Female"
+          checked={props.Gender === "Female"}
+          onChange={props.handleChange}
+        />
+      </label>
+      <label htmlFor="Gander">
+        Male
+        <input
+          type="radio"
+          name="Gender"
+          value="Male"
+          checked={props.Gender === "Male"}
+          onChange={props.handleChange}
+        />
+      </label>
+      {/* __________________________________________________________ */}
       <h2>Entered information</h2>
       <h3>
         Your name: {props.FirstName} {props.LastName}{" "}
