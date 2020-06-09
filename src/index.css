@@ -15,21 +15,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.mainHeader {
-  text-align: center;
-  width: 100%;
-  background-color: rgb(178, 178, 178);
-  padding: 10px;
-}
-.buttonPlus {
-  background: none;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-.countingComponent {
+.FormComponent {
   display: flex;
   justify-content: center;
   align-items: center;

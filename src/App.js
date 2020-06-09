@@ -1,5 +1,5 @@
 import React from "react";
-
+import Form from "./Components/FormContainer";
 class App extends React.Component {
   constructor() {
     super();
@@ -7,7 +7,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <form></form>;
+    return <Form />;
   }
 }
 
