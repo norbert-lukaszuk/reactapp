@@ -48,13 +48,41 @@ function FormComponent(props) {
         </label>
         <h4>Choose destination</h4>
         <select name="Destination" onChange={props.handleChange}>
-          <option>---Choose destination---</option>
+          <option value="">---Choose destination---</option>
           <option value="Norway">Norway</option>
           <option value="Mexico">Mexico</option>
           <option value="Japan">Japan</option>
           <option value="Hawai">Hawai</option>
         </select>
 
+        <h4>Diet restrictions: </h4>
+        <label htmlFor="VeganDiet">
+          Vegan
+          <input
+            type="checkbox"
+            name="VeganDiet"
+            checked={props.VeganDiet}
+            onChange={props.handleChange}
+          />
+        </label>
+        <label htmlFor="LactoseFreeDiet">
+          Lactose-free
+          <input
+            type="checkbox"
+            name="LactoseFreeDiet"
+            checked={props.LactoseFreeDiet}
+            onChange={props.handleChange}
+          />
+        </label>
+        <label htmlFor="KosherDiet">
+          Kosher
+          <input
+            type="checkbox"
+            name="KosherDiet"
+            checked={props.KosherDiet}
+            onChange={props.handleChange}
+          />
+        </label>
         {/* __________________________________________________________ */}
         <h2>Entered information</h2>
         <h3>
@@ -63,6 +91,11 @@ function FormComponent(props) {
         <h3>Your age: {props.Age}</h3>
         <h3>Gender: {props.Gender}</h3>
         <h3>Destination: {props.Destination}</h3>
+        <h3>
+          Diet restrictions: {props.VeganDiet ? "Vegan" : ""}{" "}
+          {props.LactoseFreeDiet ? "Lactose-free" : ""}{" "}
+          {props.KosherDiet ? "Kosher" : ""}
+        </h3>
       </form>
     </div>
   );

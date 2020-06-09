@@ -11,16 +11,18 @@ class Form extends React.Component {
       Age: "",
       Gender: "Female",
       Destination: "",
-      VeganDiet: "",
-      LactoseFreeDiet: "",
-      KosherDiet: "",
+      VeganDiet: false,
+      LactoseFreeDiet: false,
+      KosherDiet: false,
     };
   }
   handleChange = (e) => {
-    const { name, type, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
+    const { checked, name, type, value } = e.target;
+    type === "checkbox"
+      ? this.setState({ [name]: checked })
+      : this.setState({
+          [name]: value,
+        });
   };
   render() {
     return <FormComponent handleChange={this.handleChange} {...this.state} />;
