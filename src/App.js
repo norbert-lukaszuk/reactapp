@@ -19,7 +19,7 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div className="countingComponent" style={{ width: "100vw" }}>
+      <div className="countingComponent" style={{ width: "25vw" }}>
         <h1 className="mainHeader">{this.state.count}</h1>
         <button onClick={this.handleClickPlus} className="buttonPlus">
           Count +
