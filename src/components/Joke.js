@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 
 const Joke = () => {
-  function getJoke() {
-    const joke = fetch(
-      "https://geek-jokes.sameerkumar.website/api"
-    ).then((resp) => resp.json());
+  const [joke, setJoke] = useState("");
 
-    console.log(joke);
+  function getJoke() {
+    const joke = fetch("https://geek-jokes.sameerkumar.website/api")
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        setJoke((prevJoke) => (prevJoke = data));
+      });
   }
   return (
-    <>
-      <p>Joke hahah</p>
+    <div className="joke__paragraph">
+      <p>{joke}</p>
       <button onClick={getJoke}>Get another geek joke !</button>
-    </>
+    </div>
   );
 };
 

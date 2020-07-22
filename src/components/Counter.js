@@ -10,7 +10,7 @@ function Counter({ start, increment }) {
     setCount((prevCount) => prevCount - increment);
   }
   return (
-    <div className="countingComponent" style={{ width: "25vw" }}>
+    <div className="countingComponent">
       <h1 className="mainHeader">{count}</h1>
       <button onClick={handleClickPlus} className="buttonPlus">
         Count +{increment}

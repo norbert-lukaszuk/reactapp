@@ -35,3 +35,6 @@ code {
   align-items: center;
   flex-direction: column;
 }
+.joke__paragraph {
+  padding: 10px 20px;
+}
