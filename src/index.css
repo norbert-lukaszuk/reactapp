@@ -34,7 +34,9 @@ code {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 75vw;
 }
 .joke__paragraph {
   padding: 10px 20px;
+  width: 75vw;
 }
