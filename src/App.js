@@ -1,35 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+/* Using useState hook to write App component as a function not class */
+const App = () => {
+  const [count, setCount] = useState(0);
+  // count is actual state setCount is function to update the state
+  const handleClickPlus = () => setCount(count + 1);
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-    };
-  }
-  handleClickPlus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count + 1 };
-    });
-  };
-  handleClickMinus = () => {
-    this.setState((prevState) => {
-      return { count: prevState.count - 1 };
-    });
-  };
-  render() {
-    return (
-      <div className="countingComponent" style={{ width: "25vw" }}>
-        <h1 className="mainHeader">{this.state.count}</h1>
-        <button onClick={this.handleClickPlus} className="buttonPlus">
-          Count +
-        </button>
-        <button onClick={this.handleClickMinus} className="buttonPlus">
-          Count -
-        </button>
-      </div>
-    );
-  }
-}
+  const handleClickMinus = () => setCount(count - 1);
+
+  return (
+    <div className="countingComponent" style={{ width: "25vw" }}>
+      <h1 className="mainHeader">{count}</h1>
+      <button onClick={handleClickPlus} className="buttonPlus">
+        Count +
+      </button>
+      <button onClick={handleClickMinus} className="buttonPlus">
+        Count -
+      </button>
+    </div>
+  );
+};
 
 export default App;
