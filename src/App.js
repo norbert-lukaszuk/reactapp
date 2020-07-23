@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Counter from "./components/Counter";
 import Joke from "./components/Joke";
 import Checkbox from "./components/Checkbox";
-i;
 import Login from "./components/Login";
+import Logout from "./components/Logout";
+import CheckUser from "./components/CheckUser";
 /* Using useState hook to write App component as a function not class */
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
       <Checkbox />
       <Checkbox />
       <Checkbox />
+      <CheckUser />
       <Login />
+      <Logout />
     </div>
   );
 };
