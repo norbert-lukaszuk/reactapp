@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import auth from "../services/firebase";
 const CheckUser = () => {
   const check = () => {
@@ -6,11 +6,8 @@ const CheckUser = () => {
       user ? console.log("user in") : console.log("user out")
     );
   };
+  useEffect(() => check(), []);
 
-  return (
-    <div>
-      <button onClick={check}>Check User</button>
-    </div>
-  );
+  return null;
 };
 export default CheckUser;

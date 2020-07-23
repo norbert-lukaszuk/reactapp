@@ -18,7 +18,6 @@ const App = () => {
       <Checkbox />
       <InputField />
       <CheckUser />
-      <Login />
       <Logout />
     </div>
   );
