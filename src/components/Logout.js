@@ -5,7 +5,7 @@ const Logout = () => {
   const handleClick = () =>
     auth()
       .signOut()
-      .then((resp) => console.log(resp))
+      .then((resp) => console.log("user has signout"))
       .catch((err) => console.error(err));
 
   return (
