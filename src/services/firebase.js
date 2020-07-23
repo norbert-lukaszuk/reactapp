@@ -2,7 +2,7 @@ import * as firebase from "firebase";
 import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDzvO7xqa9bwmCF5fRwX3fcRMME7pjyOmk",
+  apiKey: process.env.REACT_FIREBASE_API_KEY,
   authDomain: "codecheatsheet-7d13a.firebaseapp.com",
   databaseURL: "https://codecheatsheet-7d13a.firebaseio.com",
   projectId: "codecheatsheet-7d13a",
