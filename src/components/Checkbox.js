@@ -7,7 +7,7 @@ function Checkbox() {
   };
   return (
     <div>
-      <input onClick={handleClick} type="checkbox" checked={checked} />
+      <input onChange={handleClick} type="checkbox" checked={checked} />
     </div>
   );
 }
