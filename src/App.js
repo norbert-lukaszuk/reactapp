@@ -5,6 +5,7 @@ import Checkbox from "./components/Checkbox";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import CheckUser from "./components/CheckUser";
+import InputField from "./components/InputField";
 /* Using useState hook to write App component as a function not class */
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Checkbox />
       <Checkbox />
       <Checkbox />
+      <InputField />
       <CheckUser />
       <Login />
       <Logout />
