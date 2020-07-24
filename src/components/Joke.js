@@ -4,7 +4,7 @@ const Joke = () => {
   const [joke, setJoke] = useState("");
 
   function getJoke() {
-    const joke = fetch("https://geek-jokes.sameerkumar.website/api")
+    fetch("https://geek-jokes.sameerkumar.website/api")
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
