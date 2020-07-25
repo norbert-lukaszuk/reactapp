@@ -11,10 +11,16 @@ const GetQuote = () => {
   const handleAuthorClick = (e) => {
     const arr = e.target.textContent.split(" ");
     console.log(arr);
+    // gap between name and last name must have "%20" http sign for space
+    let authorString = arr.join("%20");
 
-    // fetch("https://quote-garden.herokuapp.com/api/v2/authors/?page=1&limit=10")
-    //   .then((resp) => resp.json())
-    //   .then((data) => console.log(data));
+    console.log(authorString);
+
+    fetch(
+      `https://quote-garden.herokuapp.com/api/v2/authors/${authorString}?page=1&limit=10`
+    )
+      .then((resp) => resp.json())
+      .then((data) => console.log(data));
     console.log(e.target.textContent);
   };
   useEffect(handleClick, []);
