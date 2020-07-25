@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const GetQuote = () => {
   const [quote, setQuote] = useState("");
+  const [quotes, setQuotes] = useState([]);
 
   const handleClick = () => {
     fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random")
@@ -14,14 +15,11 @@ const GetQuote = () => {
     // gap between name and last name must have "%20" http sign for space
     let authorString = arr.join("%20");
 
-    console.log(authorString);
-
     fetch(
       `https://quote-garden.herokuapp.com/api/v2/authors/${authorString}?page=1&limit=10`
     )
       .then((resp) => resp.json())
-      .then((data) => console.log(data));
-    console.log(e.target.textContent);
+      .then((data) => setQuotes(data.quotes));
   };
   useEffect(handleClick, []);
   return (
