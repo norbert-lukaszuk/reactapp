@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const GetQuote = () => {
+const GetQuote = (props) => {
   const [quote, setQuote] = useState("");
   const [quotes, setQuotes] = useState([]);
 
@@ -22,6 +22,7 @@ const GetQuote = () => {
       .then((data) => setQuotes(data.quotes));
   };
   useEffect(handleClick, []);
+  props.getQuotes(quotes);
   return (
     <div>
       <button onClick={handleClick}>Randome quote</button>
