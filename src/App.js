@@ -3,9 +3,7 @@ import GetQuote from "./components/GetQuote";
 
 /* Using useState hook to write App component as a function not class */
 const App = () => {
-  const getQuotes = (quotes) => {
-    console.log(quotes);
-  };
+  const getQuotes = (quotes) => {};
 
   return (
     <div>
