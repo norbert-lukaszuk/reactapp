@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const GetQuote = (props) => {
   const [quote, setQuote] = useState("");
-  const [quotes, setQuotes] = useState("");
+  const [quotes, setQuotes] = useState(null);
 
   const handleClick = () => {
     fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random")
@@ -21,13 +21,13 @@ const GetQuote = (props) => {
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data.quotes);
-        let newState = data.quotes.map((element) => [...quotes, element]);
-        console.log(newState);
-      })
-      .then(console.log(quotes));
+        const arr = data.quotes;
+        setQuotes(arr);
+        console.log(quotes);
+      });
   };
-  useEffect(handleClick, []);
-  props.getQuotes(quotes);
+  // useEffect(handleClick, []);
+
   return (
     <div>
       <button onClick={handleClick}>Randome quote</button>
