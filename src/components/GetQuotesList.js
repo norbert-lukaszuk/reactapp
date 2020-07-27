@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import QuotesList from "./QuotesList";
 const GetQuotesList = (props) => {
   const [quotes, setQuotes] = useState(null);
-
   const handleAuthorClick = () => {
     // const arr = e.target.textContent.split(" ");
     const arr = props.author.split(" ");
@@ -16,15 +15,14 @@ const GetQuotesList = (props) => {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        setQuotes(data.quotes[0].quoteText);
+        setQuotes(data.quotes);
         console.log(quotes);
       });
   };
-
   return (
     <div>
       <button onClick={handleAuthorClick}>{props.author}</button>
-      <p>{quotes}</p>
+      <QuotesList quotes={quotes} />
     </div>
   );
 };
