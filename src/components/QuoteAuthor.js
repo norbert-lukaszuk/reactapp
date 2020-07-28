@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function QuoteAuthor({ author }) {
+export default function QuoteAuthor({ author, listOfQuotes }) {
   function handleClick() {
     const arr = author.split(" ");
     console.log(arr);
@@ -14,6 +14,7 @@ export default function QuoteAuthor({ author }) {
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data.quotes);
+        listOfQuotes(data.quotes);
       });
   }
   return <p onClick={handleClick}>{author}</p>;

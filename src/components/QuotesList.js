@@ -1,13 +1,19 @@
 import React from "react";
 import SignleQuote from "./SingleQuote";
 
-const QuotesList = ({ quotes }) => {
-  console.log(quotes);
+const QuotesList = ({ quotes, listOfQuotes }) => {
+  console.log(quotes, listOfQuotes);
 
   return (
     <div>
       {quotes.map((quote) => {
-        return <SignleQuote quote={quote} key={quote._id} />;
+        return (
+          <SignleQuote
+            listOfQuotes={listOfQuotes}
+            quote={quote}
+            key={quote._id}
+          />
+        );
       })}
     </div>
   );

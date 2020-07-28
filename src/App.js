@@ -38,7 +38,7 @@ const App = () => {
 
   return (
     <div>
-      <QuotesList quotes={quotesList} />
+      <QuotesList listOfQuotes={listOfQuotes} quotes={quotesList} />
       <button onClick={randomQuote}>Random</button>
     </div>
   );
