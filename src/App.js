@@ -3,26 +3,6 @@ import QuotesList from "./components/QuotesList";
 
 /* Using useState hook to write App component as a function not class */
 const App = () => {
-  const quotes = [
-    {
-      id: 1,
-      author: "Woody Allen",
-      quoteText:
-        "I have bad reflexes. I was once run over by a car being pushed by two guys.",
-    },
-    {
-      id: 2,
-      author: "Woody Allen",
-      quoteText:
-        "I don't believe in the after life, although I am bringing a change of underwear.",
-    },
-    {
-      id: 3,
-      author: "Woody Allen",
-      quoteText:
-        "I am not afraid of death, I just don't want to be there when it happens.",
-    },
-  ];
   const randomQuote = () => {
     fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random")
       .then((resp) => resp.json())
@@ -34,8 +14,8 @@ const App = () => {
   const listOfQuotes = (list) => {
     setQuotesList(list);
   };
-  const [quotesList, setQuotesList] = useState(quotes);
-
+  const [quotesList, setQuotesList] = useState([]);
+  useEffect(randomQuote, []);
   return (
     <div>
       <QuotesList listOfQuotes={listOfQuotes} quotes={quotesList} />
