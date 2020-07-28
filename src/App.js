@@ -31,6 +31,9 @@ const App = () => {
         setQuotesList([data.quote]);
       });
   };
+  const listOfQuotes = (list) => {
+    setQuotesList(list);
+  };
   const [quotesList, setQuotesList] = useState(quotes);
 
   return (
