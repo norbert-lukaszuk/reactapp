@@ -23,11 +23,20 @@ const App = () => {
         "I am not afraid of death, I just don't want to be there when it happens.",
     },
   ];
+  const randomQuote = () => {
+    fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random")
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data.quote);
+        setQuotesList([data.quote]);
+      });
+  };
   const [quotesList, setQuotesList] = useState(quotes);
 
   return (
     <div>
       <QuotesList quotes={quotesList} />
+      <button onClick={randomQuote}>Random</button>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const QuotesList = ({ quotes }) => {
   return (
     <div>
       {quotes.map((quote) => {
-        return <SignleQuote quote={quote} key={quote.id} />;
+        return <SignleQuote quote={quote} key={quote._id} />;
       })}
     </div>
   );
