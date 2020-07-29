@@ -18,8 +18,8 @@ const App = () => {
   useEffect(randomQuote, []);
   return (
     <div>
-      <QuotesList listOfQuotes={listOfQuotes} quotes={quotesList} />
       <button onClick={randomQuote}>Random</button>
+      <QuotesList listOfQuotes={listOfQuotes} quotes={quotesList} />
     </div>
   );
 };

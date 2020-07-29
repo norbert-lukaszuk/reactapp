@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function QuoteAuthor({ author, listOfQuotes }) {
+export default function QuoteAuthor({ author, listOfQuotes, isShow }) {
+  const [show, setShow] = useState(true);
   function handleClick() {
     const arr = author.split(" ");
     console.log(arr);
     // gap between name and last name must have "%20" http sign for space
     let authorString = arr.join("%20");
-    // let authorString = "Bill%20Gates";
-
     fetch(
       `https://quote-garden.herokuapp.com/api/v2/authors/${authorString}?page=1&limit=10`
     )
@@ -15,7 +14,15 @@ export default function QuoteAuthor({ author, listOfQuotes }) {
       .then((data) => {
         console.log(data.quotes);
         listOfQuotes(data.quotes);
+        setShow(false);
+        isShow(show);
       });
+    console.log(show);
   }
-  return <p onClick={handleClick}>{author}</p>;
+
+  return (
+    <p style={{ color: "orange", display: show }} onClick={handleClick}>
+      {author}
+    </p>
+  );
 }
