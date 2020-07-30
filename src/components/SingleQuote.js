@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QuoteAuthor from "./QuoteAuthor";
-const SingleQuote = ({ quote, listOfQuotes }) => {
+const SingleQuote = ({ quote, listOfQuotes, showAuthor, isAuthor }) => {
   console.log(quote, listOfQuotes);
   const [show, setShow] = useState(true);
   function isShow(show) {
@@ -11,11 +11,14 @@ const SingleQuote = ({ quote, listOfQuotes }) => {
     return (
       <div>
         <p>{quote.quoteText}</p>
-        <QuoteAuthor
-          isShow={isShow}
-          listOfQuotes={listOfQuotes}
-          author={quote.quoteAuthor}
-        />
+        {isAuthor && (
+          <QuoteAuthor
+            showAuthor={showAuthor}
+            isShow={isShow}
+            listOfQuotes={listOfQuotes}
+            author={quote.quoteAuthor}
+          />
+        )}
       </div>
     );
   } else {

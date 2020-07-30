@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-export default function QuoteAuthor({ author, listOfQuotes, isShow }) {
+export default function QuoteAuthor({
+  author,
+  listOfQuotes,
+  isShow,
+  showAuthor,
+}) {
   const [show, setShow] = useState(true);
   function handleClick() {
     const arr = author.split(" ");
@@ -14,8 +19,9 @@ export default function QuoteAuthor({ author, listOfQuotes, isShow }) {
       .then((data) => {
         console.log(data.quotes);
         listOfQuotes(data.quotes);
-        setShow(false);
-        isShow(show);
+        // setShow(false);
+        // isShow(false);
+        showAuthor(false);
       });
     console.log(show);
   }

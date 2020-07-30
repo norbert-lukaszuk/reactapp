@@ -19,7 +19,11 @@ const App = () => {
   return (
     <div>
       <button onClick={randomQuote}>Random</button>
-      <QuotesList listOfQuotes={listOfQuotes} quotes={quotesList} />
+      <QuotesList
+        showAuthor={true}
+        listOfQuotes={listOfQuotes}
+        quotes={quotesList}
+      />
     </div>
   );
 };
