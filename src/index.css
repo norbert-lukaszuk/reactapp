@@ -35,3 +35,11 @@ code {
   align-items: center;
   flex-direction: column;
 }
+.singleQuote {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+.singleQuote:hover {
+  background-color: rgba(207, 194, 194, 0.637);
+}

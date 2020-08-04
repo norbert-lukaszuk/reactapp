@@ -15,7 +15,24 @@ const App = () => {
       quoteAuthor: "Charles de Montesquieu",
     },
   ];
-  const [quoteList, setQuoteList] = useState(quotes);
+  const [quoteList, setQuoteList] = useState(null);
+  const [hideAuthor, setHideAuthor] = useState(false);
+  const authorClick = (author) => {
+    console.log(author);
+    setHideAuthor(author);
+  };
+  const fetchAuthorQuotes = (list) => {
+    setQuoteList(list);
+  };
+  const randomeClick = () => {
+    fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random")
+      .then((resp) => resp.json())
+      .then((data) => {
+        setQuoteList([data.quote]);
+        setHideAuthor(false);
+      });
+  };
+  useEffect(randomeClick, []);
   // const randomQuote = () => {
   //   fetch("https://quote-garden.herokuapp.com/api/v2/quotes/random")
   //     // fetch("https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10")
@@ -28,8 +45,13 @@ const App = () => {
   // useEffect(randomQuote, []);
   return (
     <div>
-      <button>Random Quote</button>
-      <QuoteList quoteList={quoteList} />
+      <button onClick={randomeClick}>Random Quote</button>
+      <QuoteList
+        authorClick={authorClick}
+        quoteList={quoteList}
+        hideAuthor={hideAuthor}
+        fetchAuthorQuotes={fetchAuthorQuotes}
+      />
     </div>
   );
 };
