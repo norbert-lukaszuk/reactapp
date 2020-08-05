@@ -9,12 +9,11 @@ export default function QouteList({
   let quotes = [];
   const [showAuthor, setShowAuthor] = useState(false);
   const handleClick = (e) => {
-    // authorClick(e.target.textContent);
+    // pass showAuthor to root component
     authorClick(!showAuthor);
     let author = e.target.textContent;
     const authorArr = author.split(" ");
     const authorJoin = authorArr.join("%20");
-    console.log(authorJoin);
     fetch(
       `https://quote-garden.herokuapp.com/api/v2/authors/${authorJoin}?page=1&limit=10`
     )
