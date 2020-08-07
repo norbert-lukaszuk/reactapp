@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-
-/* Using useState hook to write App component as a function not class */
+import LoginForm from "./components/LoginForm";
+import auth from "./services/firebase";
 const App = () => {
+  const [userStatus, setUserStatus] = useState(true);
+  auth.onAuthStateChanged((user) => {
+    setUserStatus(user);
+  });
   return (
     <div>
-      <h3>Hello from react</h3>
+      <LoginForm userStatus={userStatus} />
     </div>
   );
 };
