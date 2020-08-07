@@ -1,20 +1,13 @@
 import React from "react";
 import auth from "../services/firebase";
 
-function LoginForm({ userStatus }) {
-  if (userStatus) {
-    return (
-      <div>
-        <p>User in</p>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <p>User out</p>
-      </div>
-    );
-  }
+function LoginForm({ userStatus, handleSubmit }) {
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="email" id="userEmail" placeholder="Your email" />
+      <input type="password" id="userPassword" placeholder="Enter password" />
+    </form>
+  );
 }
 
 export default LoginForm;
