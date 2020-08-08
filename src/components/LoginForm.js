@@ -4,7 +4,6 @@ import auth from "../services/firebase";
 function LoginForm({ userStatus }) {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  console.log(userEmail, userPassword);
   const resetLoginForm = () => {
     setUserPassword("");
     setUserEmail("");
