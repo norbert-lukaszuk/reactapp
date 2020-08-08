@@ -1,42 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
-body {
-  margin: 0;
-  width: 100vw;
-  font-family: "Exo 2", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Exo 2", sans-serif;
+  width: 80%;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.mainHeader {
-  text-align: center;
-  width: 100%;
-  background-color: rgb(178, 178, 178);
-  padding: 10px;
-}
-.buttonPlus {
-  background: none;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-.countingComponent {
+.snippTable {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 75vw;
+  background-color: lightcoral;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
 }
-.joke__paragraph {
-  padding: 10px 20px;
-  width: 75vw;
+.snippCode {
+  background-color: rgba(99, 214, 195, 0.685);
+  border-radius: 10px;
+  padding: 10px;
+}
+.snippTable p {
+  text-align: center;
+}
+.tagList {
+  background-color: rgba(255, 105, 180, 0.747);
+  border-radius: 10px;
+  padding: 10px;
 }
