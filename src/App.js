@@ -4,9 +4,12 @@ import auth from "./services/firebase";
 import SnippetTable from "./components/SnippetTable";
 import "./index.css";
 import LanguageSelect from "./components/LanguageSelect";
+import AddPopup from "./components/AddPopup";
 const App = () => {
   const [userStatus, setUserStatus] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("HTML");
+  const [showPopup, setShowPopup] = useState(false);
+  console.log(showPopup);
   const getLanguage = (language) => {
     setSelectedLanguage(language);
   };
@@ -17,6 +20,8 @@ const App = () => {
 
   return (
     <div className="App">
+      <AddPopup showPopup={showPopup} />
+      <button onClick={() => setShowPopup(!showPopup)}>Add snipp</button>
       <LoginForm userStatus={userStatus} />
       <LanguageSelect getLanguage={getLanguage} />
       <SnippetTable
