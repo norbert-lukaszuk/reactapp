@@ -7,12 +7,10 @@ const App = () => {
     setUserStatus(user);
     console.log(user);
   });
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+
   return (
     <div>
-      <LoginForm handleSubmit={handleSubmit} userStatus={userStatus} />
+      <LoginForm userStatus={userStatus} />
     </div>
   );
 };
