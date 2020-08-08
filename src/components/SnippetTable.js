@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import db from "../services/firestore";
 import "../index.css";
 import SnippTags from "./SnippTags";
-function SnippetTable({ userStatus }) {
+
+function SnippetTable({ userStatus, selectedLanguage }) {
   const [snipps, setSnipps] = useState();
-  // console.log(snipps[0].data());
+
   const getData = () => {
     db()
-      .collection("data/codeNotes/JavaScript")
+      .collection(`data/codeNotes/${selectedLanguage}`)
       .get()
       .then((resp) => {
         console.log(resp.docs[0].data().code);
@@ -16,7 +17,7 @@ function SnippetTable({ userStatus }) {
 
       .catch((err) => console.log(err));
   };
-  useEffect(() => getData(), [userStatus]);
+  useEffect(() => getData(), [userStatus, selectedLanguage]);
   if (userStatus && snipps) {
     let snippList = snipps.map((snip) => {
       return (
