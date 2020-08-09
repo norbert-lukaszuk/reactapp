@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../index.css";
-function AddPopup({ showPopup }) {
-  const [show, setShow] = useState(showPopup);
-  if (show)
+function AddPopup({ showPopup, getShowPopup }) {
+  // const [show, setShow] = useState(showPopup);
+  if (showPopup)
     return (
       <div className="addPopup">
-        <button onClick={() => setShow(!show)}>Close</button>
-        <h2>Im popup!</h2>
+        <button onClick={() => getShowPopup(showPopup)}>Close</button>
+        <h2>Add new code snippet</h2>
       </div>
     );
   else {

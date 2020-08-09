@@ -16,11 +16,12 @@ const App = () => {
   auth().onAuthStateChanged((user) => {
     setUserStatus(user);
   });
-  console.log(selectedLanguage);
-
+  const getShowPopup = (show) => {
+    setShowPopup(!show);
+  };
   return (
     <div className="App">
-      <AddPopup showPopup={showPopup} />
+      <AddPopup showPopup={showPopup} getShowPopup={getShowPopup} />
       <button onClick={() => setShowPopup(!showPopup)}>Add snipp</button>
       <LoginForm userStatus={userStatus} />
       <LanguageSelect getLanguage={getLanguage} />
