@@ -6,13 +6,23 @@ function AddSnippetForm() {
   const [codeText, setCodeText] = useState("");
   const [hashtags, setHashtags] = useState([]);
   const [rawHashtags, setRawHastags] = useState("");
+  const [snippetObject, setSnippetObject] = useState({});
+  console.log(hashtags);
+  console.log(snippetObject);
   const getLanguage = (language) => {
     setSelectedLanguage(language);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setHashtags(rawHashtags.split(" "));
-    console.log(selectedLanguage, codeText, hashtags);
+    let string = rawHashtags;
+    let arr = string.split(" ");
+    setHashtags(arr);
+    console.log(arr);
+    setSnippetObject({
+      code: codeText,
+      lang: selectedLanguage,
+      tags: hashtags,
+    });
   };
   const handleHashTags = (e) => {
     setRawHastags(e.target.value);
