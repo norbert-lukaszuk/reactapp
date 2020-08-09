@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LanguageSelect from "./LanguageSelect";
+import db from "../services/firestore";
 
 function AddSnippetForm() {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -9,20 +10,26 @@ function AddSnippetForm() {
   const [snippetObject, setSnippetObject] = useState({});
   console.log(hashtags);
   console.log(snippetObject);
+  const setHashtagArray = () => {
+    let string = rawHashtags;
+    let arr = string.split(" ");
+    setHashtags(arr);
+  };
+  useEffect(setHashtagArray, [rawHashtags]);
   const getLanguage = (language) => {
     setSelectedLanguage(language);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    let string = rawHashtags;
-    let arr = string.split(" ");
-    setHashtags(arr);
-    console.log(arr);
-    setSnippetObject({
-      code: codeText,
-      lang: selectedLanguage,
-      tags: hashtags,
-    });
+    db()
+      .collection(`data/codeNotes/${selectedLanguage}`)
+      .add({
+        code: codeText,
+        lang: selectedLanguage,
+        tags: hashtags,
+      })
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err));
   };
   const handleHashTags = (e) => {
     setRawHastags(e.target.value);
