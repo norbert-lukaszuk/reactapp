@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import auth from "./services/firebase";
 import SnippetTable from "./components/SnippetTable";
@@ -21,10 +21,14 @@ const App = () => {
   };
   return (
     <div className="App">
-      <AddPopup showPopup={showPopup} getShowPopup={getShowPopup} />
+      <AddPopup
+        showPopup={showPopup}
+        getShowPopup={getShowPopup}
+        userStatus={userStatus}
+      />
       <button onClick={() => setShowPopup(!showPopup)}>Add snipp</button>
       <LoginForm userStatus={userStatus} />
-      <LanguageSelect getLanguage={getLanguage} />
+      <LanguageSelect getLanguage={getLanguage} userStatus={userStatus} />
       <SnippetTable
         selectedLanguage={selectedLanguage}
         userStatus={userStatus}

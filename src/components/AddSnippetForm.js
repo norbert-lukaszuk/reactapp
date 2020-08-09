@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import LanguageSelect from "./LanguageSelect";
 import db from "../services/firestore";
 
-function AddSnippetForm() {
+function AddSnippetForm(userStatus) {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [codeText, setCodeText] = useState("");
   const [hashtags, setHashtags] = useState([]);
   const [rawHashtags, setRawHastags] = useState("");
-  const [snippetObject, setSnippetObject] = useState({});
   console.log(hashtags);
-  console.log(snippetObject);
   const setHashtagArray = () => {
     let string = rawHashtags;
     let arr = string.split(" ");
@@ -36,8 +34,8 @@ function AddSnippetForm() {
   };
   return (
     <div>
+      <LanguageSelect getLanguage={getLanguage} userStatus={userStatus} />
       <form onSubmit={handleSubmit}>
-        <LanguageSelect getLanguage={getLanguage} />
         <textarea
           id="codeText"
           cols="30"

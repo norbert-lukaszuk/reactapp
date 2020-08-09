@@ -17,7 +17,7 @@ function SnippetTable({ userStatus, selectedLanguage }) {
 
       .catch((err) => console.log(err));
   };
-  useEffect(() => getData(), [userStatus, selectedLanguage]);
+  useEffect(getData, [userStatus, selectedLanguage]);
   if (userStatus && snipps) {
     let snippList = snipps.map((snip) => {
       return (
