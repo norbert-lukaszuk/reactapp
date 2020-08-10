@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LanguageSelect from "./LanguageSelect";
 import db from "../services/firestore";
-
+import "../index.css";
 function AddSnippetForm(userStatus) {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [codeText, setCodeText] = useState("");
@@ -35,7 +35,7 @@ function AddSnippetForm(userStatus) {
   return (
     <div>
       <LanguageSelect getLanguage={getLanguage} userStatus={userStatus} />
-      <form onSubmit={handleSubmit}>
+      <form className="addSnippetForm" onSubmit={handleSubmit}>
         <textarea
           id="codeText"
           cols="30"
